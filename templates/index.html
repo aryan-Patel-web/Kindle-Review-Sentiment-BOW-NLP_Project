@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kindle Review Sentiment Analysis</title>
+    <style>
+        body {
+            background: #f7f7fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 480px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            padding: 32px 36px 28px 36px;
+        }
+        h2 {
+            text-align: center;
+            color: #2d3a4b;
+            margin-bottom: 28px;
+        }
+        textarea {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 1rem;
+            resize: vertical;
+            min-height: 100px;
+            background: #f9fafb;
+            transition: border 0.2s;
+        }
+        textarea:focus {
+            border: 1.5px solid #cd5ac7;
+            outline: none;
+            background: #fff;
+        }
+        input[type="submit"] {
+            background: #f707e7;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            width: 100%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 18px;
+            transition: background 0.2s;
+        }
+        input[type="submit"]:hover {
+            background: #2563eb;
+        }
+        .result {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1df605;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 18px 8px 18px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Kindle Review Sentiment Analysis Using BOW</h2>
+        <form method="post">
+            <textarea name="review" placeholder="Enter your Kindle review here"></textarea><br>
+            <input type="submit" value="Predict Sentiment">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                Prediction: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
